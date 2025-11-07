@@ -1,14 +1,6 @@
 import os
 import sys
 import types
-import discord
-from discord.ext import commands
-from dotenv import load_dotenv
-from flask import Flask
-from threading import Thread
-
-# --- FIX audioop lỗi trên Render ---
-# Một số bản Python của Render không có audioop, ta mock module này để tránh lỗi
 if 'audioop' not in sys.modules:
     audioop = types.ModuleType('audioop')
     # mock các hàm chính, trả về dummy
@@ -16,6 +8,13 @@ if 'audioop' not in sys.modules:
     audioop.max = lambda a, b: 0
     audioop.minmax = lambda a, b: (0,0)
     sys.modules['audioop'] = audioop
+import discord
+from discord.ext import commands
+from dotenv import load_dotenv
+from flask import Flask
+from threading import Thread
+
+
 # --- Load biến môi trường ---
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
