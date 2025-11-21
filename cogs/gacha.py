@@ -51,7 +51,7 @@ class Gacha(commands.Cog):
             f"*Mỹ nhân trong thiên hạ đều tầm thường đối với ta, chỉ có **{choice}** mới làm ta hứng thú!*",
             f"Ta nghe lão tổ từng nói, ***{choice}*** là bí quyết để trường sinh bất lão.",
             f"*Ta thà phụ thiên hạ, chứ không thể không chọn **{choice}**.*",
-            f"Thà là không chọn, chứ đã chọn thì phải là **{choice}*.",
+            f"Thà là không chọn, chứ đã chọn thì phải là **{choice}**.",
         ]
 
         msg = random.choice(responses)
