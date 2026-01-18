@@ -31,18 +31,28 @@ class SmallTalk(commands.Cog):
             return
 
         messages = [
-            "Bình rượu mới để đây mà đâu mất rồi?",
+            "Bình rượu lão phu mới để đây đâu mất rồi? Kẻ nào dám giấu rượu của lão phu? 🤨",
             "Nay có gì vui không mấy đứa?",
             "Dậy đi mấy đứa, bữa nay cày cuốc gì chưa?",
             "Ta chưa say.....chỉ hơi xoay xoay thôi 😵",
             "Ai rót cho ta thêm ly nữa nào.",
             "Ủa.....ai lấy mất bình rượu của ta nữa rồi? 🤬",
             "Tụi bây ngủ hết chưa? Chán quá nè.",
-            "Ta còn tỉnh.....thứ duy nhất quay là cái thế giới này 🥴",
             "Tiểu tử kia, làm hết nhiệm vụ ngày hôm nay chưa?",
             "Không ai thèm ngó ngàng gì tới lão thần thú này hết 😤",
             "Ai đó đi bảo tên Hổ tiểu tử mang rượu lên cho ta.",
-            "Tiểu Lạc, đi bảo trù phòng ngày hôm hay lão Hùng ta muốn ăn đùi heo nướng lá mắc mật 🍖",
+            "Tiểu Lạc, đi bảo trù phòng ngày hôm nay lão Hùng ta muốn ăn linh mễ và gà nướng ngũ vị. 🍗🧄🧅🫚🌿🌶️",
+            "Tiểu Lạc, đi bảo trù phòng ngày hôm nay lão Hùng ta muốn ăn thịt heo nướng mật ong. 🍖🍯",
+            "Tiểu Lạc, đi bảo trù phòng ngày hôm nay lão Hùng ta muốn ăn mì. 🍜",
+            "Tiểu Lạc, đến trù phòng lấy chút đồ ngọt cho lão phu 🥧🍮🍩🥯🥞 Yên tâm, không thiếu chỗ tốt cho ngươi.",
+            "Ai đó đi tìm Sầu Riêng giúp lão phu, nha đầu ngốc đó lại lủi thủi đi nghe nhạc một mình rồi.",
+            "Này Cá nha đầu! Đừng trêu chọc sư phụ ngươi nữa, hắn có tuổi rồi, ngươi không sợ hắn đau tim xong vũ hóa phi thăng sao? 🥲",
+            "Này tiểu Diệp, sao hôm nay ngươi không đi cùng tiểu Giản?",
+            "Này tiểu Giản, tiểu Diệp đâu rồi?",
+            "Ô là Mèo Măng đấy à? Nha đầu ngươi đã cơm nước gì chưa?",
+            "Các ngươi nhớ nhắc tên Dao tiểu tử tu luyện cho đàng hoàng, đúng là làm cho lão phu thao nát tâm mà. 😩"
+            "Gấu tiểu tử là cháu ruột của lão phu! Các ngươi không được bắt nạt hắn, biết chưa? 😎",
+            "Tiểu tử Mèo Mun mấy nay tu luyện như nào rồi? Không được lơ là đâu biết chưa? 🧐"
             "Tiểu Diệp với tiểu Giản lại đi đâu đấy?",
             "Lão tổ mà có hỏi, thì các người bảo không có gặp qua ta, nhớ chưa? 😨",
             "Một thời tung hoành ngang dọc, hùng cứ một phương, mà giờ lại phải ngồi đây trông chừng đám tiểu bối các ngươi. Chán chết lão Hùng ta rồi."
