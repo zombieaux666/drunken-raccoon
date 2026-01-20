@@ -53,9 +53,9 @@ class SmallTalk(commands.Cog):
             "Này tiểu Diệp, sao hôm nay ngươi không đi cùng tiểu Giản?",
             "Này tiểu Giản, tiểu Diệp đâu rồi?",
             "Ô là Mèo Măng đấy à? Nha đầu ngươi đã cơm nước gì chưa?",
-            "Các ngươi nhớ nhắc tên Dao tiểu tử tu luyện cho đàng hoàng, đúng là làm cho lão phu thao nát tâm mà. 😩"
+            "Các ngươi nhớ nhắc tên Dao tiểu tử tu luyện cho đàng hoàng, đúng là làm cho lão phu thao nát tâm mà. 😩",
             "Gấu tiểu tử là cháu ruột của lão phu! Các ngươi không được bắt nạt hắn, biết chưa? 😎",
-            "Tiểu tử Mèo Mun mấy nay tu luyện như nào rồi? Không được lơ là đâu biết chưa? 🧐"
+            "Tiểu tử Mèo Mun mấy nay tu luyện như nào rồi? Không được lơ là đâu biết chưa? 🧐",
             "Tiểu Diệp với tiểu Giản lại đi đâu đấy?",
             "Lão tổ mà có hỏi, thì các người bảo không có gặp qua ta, nhớ chưa? 😨",
             "Một thời tung hoành ngang dọc, hùng cứ một phương, mà giờ lại phải ngồi đây trông chừng đám tiểu bối các ngươi. Chán chết lão Hùng ta rồi."
