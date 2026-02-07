@@ -74,6 +74,6 @@ async def setup_hook():
                 print(f"⚠️ Lỗi khi load {filename}: {e}")
 
 # --- Chạy bot ---
-    if __name__ == "__main__":
+if __name__ == "__main__":
     keep_alive()  # giữ bot online bằng Flask (Render + UptimeRobot)
     bot.run(TOKEN)
