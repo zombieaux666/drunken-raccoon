@@ -38,7 +38,8 @@ def home():
     return "✅ Drunken Raccoon bot is alive!"
 
 def run_flask():
-    app.run(host="0.0.0.0", port=8080)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
 
 def keep_alive():
     thread = Thread(target=run_flask)
@@ -73,5 +74,6 @@ async def setup_hook():
                 print(f"⚠️ Lỗi khi load {filename}: {e}")
 
 # --- Chạy bot ---
+    if __name__ == "__main__":
     keep_alive()  # giữ bot online bằng Flask (Render + UptimeRobot)
     bot.run(TOKEN)
