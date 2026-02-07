@@ -82,4 +82,8 @@ async def setup_hook():
 # --- Chạy bot ---
 if __name__ == "__main__":
     keep_alive()  # giữ bot online bằng Flask (Render + UptimeRobot)
+    
+    import time
+    time.sleep(3)
+    
     bot.run(TOKEN)
