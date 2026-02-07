@@ -1,89 +1,62 @@
 import os
 import sys
 import types
+
+# fix audioop (Render python 3.13)
 if 'audioop' not in sys.modules:
     audioop = types.ModuleType('audioop')
-    # mock các hàm chính, trả về dummy
     audioop.add = lambda a, b: 0
     audioop.max = lambda a, b: 0
     audioop.minmax = lambda a, b: (0,0)
     sys.modules['audioop'] = audioop
+
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
 from flask import Flask
-from threading import Thread
+import threading
 
-
-# --- Load biến môi trường ---
+# ===== LOAD ENV =====
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
 
 if not TOKEN:
-    raise SystemExit("❌ Không tìm thấy DISCORD_TOKEN trong file .env!")
+    raise SystemExit("❌ Không tìm thấy DISCORD_TOKEN")
 
-# --- Intents ---
+# ===== DISCORD =====
 intents = discord.Intents.default()
 intents.message_content = True
-intents.members = True  # cần cho event on_member_join
+intents.members = True
 
-# --- Bot setup ---
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-# --- Flask keep-alive ---
+# ===== FLASK =====
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "✅ Drunken Raccoon bot is alive!"
+    return "✅ Bot is alive"
 
 def run_flask():
     port = int(os.environ.get("PORT", 10000))
-    app.run(
-        host="0.0.0.0",
-        port=port,
-        debug=False,
-        use_reloader=False
-    )
+    app.run(host="0.0.0.0", port=port, debug=False, use_reloader=False)
 
-def keep_alive():
-    thread = Thread(target=run_flask)
-    thread.daemon = True
-    thread.start()
-
-# --- Khi bot sẵn sàng ---
+# ===== EVENTS =====
 @bot.event
 async def on_ready():
-    print(f"✅ Đăng nhập thành công: {bot.user}")
-    print("🔄 Đang đồng bộ slash commands...")
-    try:
-        synced = await bot.tree.sync()
-        print(f"✨ Đã đồng bộ {len(synced)} slash command(s)")
-    except Exception as e:
-        print(f"⚠️ Lỗi khi sync: {e}")
+    print(f"✅ Logged in as {bot.user}")
 
-# --- Tự động load cogs ---
 @bot.event
 async def setup_hook():
-    cogs_dir = "./cogs"
-    if not os.path.exists(cogs_dir):
-        print("⚠️ Không tìm thấy thư mục cogs!")
-        return
+    for file in os.listdir("./cogs"):
+        if file.endswith(".py"):
+            await bot.load_extension(f"cogs.{file[:-3]}")
+            print(f"Loaded {file}")
 
-    for filename in os.listdir(cogs_dir):
-        if filename.endswith(".py"):
-            cog_name = f"cogs.{filename[:-3]}"
-            try:
-                await bot.load_extension(cog_name)
-                print(f"📦 Loaded module: {filename}")
-            except Exception as e:
-                print(f"⚠️ Lỗi khi load {filename}: {e}")
-
-# --- Chạy bot ---
+# ===== MAIN =====
 if __name__ == "__main__":
-    keep_alive()  # giữ bot online bằng Flask (Render + UptimeRobot)
-    
-    import time
-    time.sleep(3)
-    
+    print("🚀 Starting Flask + Discord bot")
+
+    threading.Thread(target=run_flask).start()
+
     bot.run(TOKEN)
