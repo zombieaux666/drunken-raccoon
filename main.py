@@ -43,6 +43,7 @@ def run_flask():
 
 def keep_alive():
     thread = Thread(target=run_flask)
+    thread.daemon = True
     thread.start()
 
 # --- Khi bot sẵn sàng ---
